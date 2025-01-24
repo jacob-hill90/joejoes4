@@ -26,17 +26,17 @@ const Gallery = () => {
     "018.jpg",
   ];
 
-
-  
   return (
     <div className="bg-gray-100 py-12 px-6">
       {/* Video Section */}
       <div className="mb-8">
-        <h2 className="text-2xl font-bold text-center mb-4 underline">2024 Highlight Reel</h2>
+        <h2 className="text-xl font-bold text-center mb-4 underline">
+          2024 Highlight Reel
+        </h2>
         <video
           className="w-full max-w-4xl mx-auto cursor-pointer"
           controls={true}
-          poster="/video-thumbnail.jpg"
+          poster={`${CLOUDFRONT_URL}/016.jpg`}
           onClick={(e) => e.target.play()}
         >
           <source src={`${CLOUDFRONT_URL}/fullComp.mp4`} type="video/mp4" />
@@ -44,8 +44,9 @@ const Gallery = () => {
         </video>
       </div>
 
-      <h2 className="text-2xl font-bold text-center mb-4 underline">2024 Photos</h2>
-
+      <h2 className="text-xl font-bold text-center mb-4 underline">
+        2024 Photos
+      </h2>
 
       {/* Photos Grid */}
       <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 gap-6">
@@ -54,7 +55,7 @@ const Gallery = () => {
             key={index}
             src={`${CLOUDFRONT_URL}/${photo}`}
             alt={`Gallery Image ${index + 1}`}
-            className="w-full h-64 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
+            className="w-full h-96 object-cover rounded-lg cursor-pointer hover:scale-105 transition-transform"
             onClick={() => {
               setModalImage(`${CLOUDFRONT_URL}/${photo}`);
               setCurrentIndex(index);
@@ -66,7 +67,15 @@ const Gallery = () => {
       {/* Attribution */}
       <div className="mt-8 text-center">
         <p className="text-sm text-gray-600">
-          Photos by: <a href="https://www.robingamblephotography.com" target="_blank" rel="noopener noreferrer" className="text-blue-600 hover:underline">Robin Gamble</a>
+          Photos by:{" "}
+          <a
+            href="https://www.robingamblephotography.com"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="text-blue-600 hover:underline"
+          >
+            Robin Gamble
+          </a>
         </p>
       </div>
 
@@ -79,9 +88,9 @@ const Gallery = () => {
             setCurrentIndex(null);
           }}
         >
-          <div className="relative max-w-3xl w-full p-4">
+          <div className="relative w-full max-w-7xl p-4">
             <button
-              className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-4 w-12 h-12 flex items-center justify-center"
+              className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-2 w-10 h-10 flex items-center justify-center"
               onClick={() => setModalImage(null)}
             >
               X
@@ -89,7 +98,7 @@ const Gallery = () => {
             <img
               src={modalImage}
               alt="Modal View"
-              className="w-full max-w-5xl h-auto rounded-lg"
+              className="w-full h-auto max-h-screen rounded-lg object-contain"
             />
           </div>
         </div>
