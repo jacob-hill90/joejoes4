@@ -3,6 +3,7 @@ import Home from "./components/Home";
 import About from "./components/About";
 import Gallery from "./components/Gallery";
 import Preview from "./components/Preview";
+import News from "./components/News"
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -40,6 +41,8 @@ function App() {
         return <Gallery />;
       case "preview":
         return <Preview />;
+      case "news":
+        return <News />;
 
       default:
         return (
@@ -87,6 +90,13 @@ function App() {
               onClick={() => setActiveTab("gallery")}
             >
               Gallery
+            </button>
+               {/* 🆕 News tab */}
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => setActiveTab("news")}
+            >
+              News
             </button>
             <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
@@ -139,6 +149,15 @@ function App() {
   }}
 >
   Gallery
+</button>
+<button
+  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+  onClick={() => {
+    setActiveTab("news");
+    setMenuOpen(false); // Close the news menu
+  }}
+>
+  News
 </button>
 <button
   className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
