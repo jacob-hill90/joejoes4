@@ -34,7 +34,7 @@ export default function News() {
     </>
   }
   
-  date="June 24, 2025"
+  date="June 22, 2025"
 />
 
 
