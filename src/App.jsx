@@ -2,8 +2,8 @@ import { useState, useRef, useEffect } from "react";
 import Home from "./components/Home";
 import About from "./components/About";
 import Gallery from "./components/Gallery";
-import Preview from "./components/Preview";
-import News from "./components/News"
+import News from "./components/News";
+import Countdown from "./components/Countdown";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -39,8 +39,6 @@ function App() {
         return <About />;
       case "gallery":
         return <Gallery />;
-      case "preview":
-        return <Preview />;
       case "news":
         return <News />;
 
@@ -91,18 +89,12 @@ function App() {
             >
               Gallery
             </button>
-               {/* 🆕 News tab */}
+            {/* 🆕 News tab */}
             <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
               onClick={() => setActiveTab("news")}
             >
               News
-            </button>
-            <button
-              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-              onClick={() => setActiveTab("preview")}
-            >
-              Preview
             </button>
           </div>
 
@@ -122,53 +114,43 @@ function App() {
           <div
             ref={menuRef}
             className="absolute top-full left-0 w-full opacity-80 bg-gray-800 text-white flex flex-col shadow-md z-50"
+          >
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => {
+                setActiveTab("home");
+                setMenuOpen(false); // Close the mobile menu
+              }}
             >
-     <button
-  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-  onClick={() => {
-    setActiveTab("home");
-    setMenuOpen(false); // Close the mobile menu
-  }}
->
-  Home
-</button>
-<button
-  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-  onClick={() => {
-    setActiveTab("about");
-    setMenuOpen(false); // Close the mobile menu
-  }}
->
-  About
-</button>
-<button
-  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-  onClick={() => {
-    setActiveTab("gallery");
-    setMenuOpen(false); // Close the mobile menu
-  }}
->
-  Gallery
-</button>
-<button
-  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-  onClick={() => {
-    setActiveTab("news");
-    setMenuOpen(false); // Close the news menu
-  }}
->
-  News
-</button>
-<button
-  className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
-  onClick={() => {
-    setActiveTab("preview");
-    setMenuOpen(false); // Close the mobile menu
-  }}
->
-  Preview
-</button>
-
+              Home
+            </button>
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => {
+                setActiveTab("about");
+                setMenuOpen(false); // Close the mobile menu
+              }}
+            >
+              About
+            </button>
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => {
+                setActiveTab("gallery");
+                setMenuOpen(false); // Close the mobile menu
+              }}
+            >
+              Gallery
+            </button>
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => {
+                setActiveTab("news");
+                setMenuOpen(false); // Close the news menu
+              }}
+            >
+              News
+            </button>
           </div>
         )}
       </header>
@@ -176,6 +158,7 @@ function App() {
       <main className="flex-grow bg-[#f8f9fa] ">{renderContent()}</main>
 
       <footer className="bg-[#f8f9fa] pt-12 text-black text-center py-4">
+        <Countdown targetDate="2025-10-25T17:00:00" />
         <p className="text-sm">&copy; 2025 JoeJoesTailgate</p>
       </footer>
     </div>

@@ -6,7 +6,7 @@ const About = () => {
         Welcome to JoeJoe's Annual Tailgate, the ultimate pre-game tradition that brings together friends, family, and fans from all over! Held every year to celebrate camaraderie, team spirit, and good times, this event is a hallmark of our love for football and community.
       </p>
       <p className="text-lg text-gray-700 mt-4 max-w-3xl mx-auto">
-        Whether you are here for the delicious food, the exciting games, or simply the great company, JoeJoe's Tailgate promises unforgettable memories. From BBQ grills to live music, there's something for everyone to enjoy.
+        Whether you are here for the delicious food, the exciting games, or simply the great company, JoeJoe's Tailgate promises unforgettable memories. From BBQ grills to live music to football, there's something for everyone to enjoy.
       </p>
       <p className="text-lg text-gray-700 mt-4 max-w-3xl mx-auto">
         Don’t miss out on the fun—come join us, wear your team colors, and make this year’s tailgate the best one yet. We can’t wait to see you there!
