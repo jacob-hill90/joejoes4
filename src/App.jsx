@@ -10,6 +10,8 @@ function App() {
   const [activeTab, setActiveTab] = useState("home");
   const menuRef = useRef(null);
 
+  const currentYear = new Date().getFullYear();
+
   useEffect(() => {
     if ("scrollRestoration" in window.history) {
       window.history.scrollRestoration = "manual";
@@ -159,7 +161,7 @@ function App() {
 
       <footer className="bg-[#f8f9fa] pt-12 text-black text-center py-4">
         <Countdown targetDate="2025-10-25T17:00:00" />
-        <p className="text-sm">&copy; 2025 JoeJoesTailgate</p>
+        <p className="text-sm">&copy; {currentYear} JoeJoesTailgate</p>
       </footer>
     </div>
   );
