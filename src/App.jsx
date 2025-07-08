@@ -4,6 +4,7 @@ import About from "./components/About";
 import Gallery from "./components/Gallery";
 import News from "./components/News";
 import Countdown from "./components/Countdown";
+import Lodging from "./components/Lodging";
 
 function App() {
   const [menuOpen, setMenuOpen] = useState(false);
@@ -43,6 +44,8 @@ function App() {
         return <Gallery />;
       case "news":
         return <News />;
+      case "lodging":
+        return <Lodging />;
 
       default:
         return (
@@ -61,12 +64,12 @@ function App() {
         <div className="hidden md:block w-1/3"></div>
 
         {/* Center Section: Logo */}
-        <div className="w-full md:w-1/3 flex justify-center">
+        <div className="w-full md:w-1/3 flex justify-center ml-4">
           <img
             src="/joejoelogo.png"
             onClick={() => window.location.reload()}
             alt="JoeJoe's Logo"
-            className="h-20 object-contain cursor-pointer"
+            className="h-24 object-contain cursor-pointer"
           />
         </div>
 
@@ -98,6 +101,12 @@ function App() {
             >
               News
             </button>
+             <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => setActiveTab("lodging")}
+            >
+              Lodging
+            </button>
           </div>
 
           {/* Mobile Menu Icon */}
@@ -115,7 +124,7 @@ function App() {
         {menuOpen && (
           <div
             ref={menuRef}
-            className="absolute top-full left-0 w-full opacity-80 bg-gray-800 text-white flex flex-col shadow-md z-50"
+            className="absolute top-full left-0 w-full opacity-95 bg-gray-800 text-white flex flex-col shadow-md z-50"
           >
             <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
@@ -152,6 +161,15 @@ function App() {
               }}
             >
               News
+            </button>
+            <button
+              className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
+              onClick={() => {
+                setActiveTab("lodging");
+                setMenuOpen(false); 
+              }}
+            >
+              Lodging
             </button>
           </div>
         )}

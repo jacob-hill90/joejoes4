@@ -1,19 +1,46 @@
-// import { CLOUDFRONT_URL } from "../config";
-
 const Home = () => {
   return (
-    <div className="bg-gray-100 py-12 px-6 text-center flex flex-col items-center space-y-12">
+    <div className="bg-gray-100 pb-12 px-6 text-center flex flex-col items-center space-y-10">
+      {/* Matchup Header Section */}
+      <section className="w-full max-w-3xl pt-5 pr-5 pl-5 pb-0 sm:pb-1 flex items-center justify-between">
+        {/* Left Team Logo */}
+        <div className="flex-shrink-0 pl-2">
+         <a target="_blank" href="https://www.google.com/search?q=Michigan+Football">
+          <img
+            src="/michigan-logo.svg"
+            alt="Michigan Logo"
+            className="h-12 sm:h-20 w-auto"
+          />
+          </a>
+        </div>
+
+        {/* Date */}
+        <div className="text-[#000] font-bold text-lg sm:text-2xl text-center px-4 flex-1">
+          Saturday, October 25, 2025
+        </div>
+
+        {/* Right Team Logo */}
+        <div className="flex-shrink-0 pr-2">
+          <a target="_blank" href="https://www.google.com/search?q=Michigan+State+Football">
+            <img
+              src="/michigan-state-logo.svg"
+              alt="Michigan State Logo"
+              className="h-14 sm:h-24 w-auto"
+            />
+          </a>
+        </div>
+      </section>
       {/* New This Year Section */}
       <section className="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 sm:p-10">
-        <h2 className="text-3xl font-bold text-[#00274c] mb-6 underline text-center">
+        <h2 className="text-2xl font-bold text-[#00274c] mb-6 underline text-center">
           What’s New This Year
         </h2>
         <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-3xl mx-auto">
-          <ul className="text-gray-700 text-lg list-disc list-inside space-y-4">
+          <ul className="text-gray-700 text-lg list-disc list-outside pl-6 space-y-4">
             <li>Charity Putting Challenge</li>
             <li>Special Keynote Appearance</li>
           </ul>
-          <ul className="text-gray-700 text-lg list-disc list-inside space-y-4">
+          <ul className="text-gray-700 text-lg list-disc list-outside pl-6 space-y-4">
             <li>
               Live Performance by <strong>30</strong> Bagpipers
             </li>
@@ -44,9 +71,8 @@ const Home = () => {
                     KidZone, food stations, coffee bar, and full bar open
                   </div>
                   <div className="mt-1 text-sm text-gray-600 leading-relaxed">
-                    Fun: Putt for Charity · Face painter · Photo booth ·
-                    Bouncy house · QB toss · Skee-Ball · Connect 4 · Jenga.{" "}
-                    <br />
+                    Fun: Putt for Charity · Face painter · Photo booth · Bouncy
+                    house · QB toss · Skee-Ball · Connect 4 · Jenga. <br />
                     Food offerings: Burger bar · Hotdog bar · Cheese & cracker
                     bar · Veggie bar · Dessert bar. <br />
                     Beverage stations: Fresh coffee, hot cocoa, and full-service

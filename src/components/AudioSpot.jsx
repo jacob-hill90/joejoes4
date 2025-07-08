@@ -3,7 +3,7 @@ export default function AudioSpot({ src, title, description, date }) {
   return (
     <section className="w-full max-w-xl mx-auto my-8 p-6 bg-white rounded-2xl shadow-lg border border-gray-200">
       {title && (
-        <h2 className="text-2xl font-bold text-gray-800 mb-2">
+        <h2 className="text-2xl text-[#00274c] font-bold text-gray-800 mb-2">
           {title}
         </h2>
       )}
