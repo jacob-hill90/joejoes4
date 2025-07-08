@@ -74,11 +74,6 @@ const Gallery = () => {
             poster={`${CLOUDFRONT_URL}/018.jpg`}
             controls
             playsInline
-            onClick={(e) => {
-              const video = e.target;
-              if (video.paused) video.play();
-              else video.pause();
-            }}
           >
             <source src={`${CLOUDFRONT_URL}/fullComp.mp4`} type="video/mp4" />
             Your browser does not support the video tag.
