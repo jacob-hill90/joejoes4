@@ -31,7 +31,7 @@ export default function Lodging() {
           <br />
           <strong>Website:</strong>{" "}
           <a
-            href="https://www.ihg.com/staybridge/hotels/us/en/ann-arbor/arbsb/hoteldetail"
+            href="https://www.ihg.com/staybridge/hotels/us/en/find-hotels/select-roomrate?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=arbsb&qCiD=24&qCiMy=092025&qCoD=26&qCoMy=092025&qGrpCd=FOR&qAAR=6CBARC&qRtP=6CBARC&setPMCookies=true&qSHBrC=SB&qDest=3850%20Research%20Park%20Drive,%20Ann%20Arbor,%20MI,%20US&showApp=true&adjustMonth=false&srb_u=1&qRmFltr="
             target="_blank"
             rel="noopener noreferrer"
             className="text-blue-600 hover:underline"
@@ -40,18 +40,18 @@ export default function Lodging() {
           </a>
         </p>
 
-        <p className="text-gray-600 text-sm mt-4 mb-4">
-          To book online, use the link above to access the hotel website.
-          Once there, select your preferred dates, click{" "}
-          <strong>"VIEW PRICES"</strong>.
-          <br />
-          If you prefer to book by phone, simply call the number listed above.
-        </p>
+      <p className="text-gray-700 text-sm mt-4 mb-1">
+  To book online, <strong>click the link above</strong> or <strong><a
+    href="https://www.ihg.com/staybridge/hotels/us/en/find-hotels/select-roomrate?fromRedirect=true&qSrt=sBR&qIta=99801505&icdv=99801505&qSlH=arbsb&qCiD=24&qCiMy=092025&qCoD=26&qCoMy=092025&qGrpCd=FOR&qAAR=6CBARC&qRtP=6CBARC&setPMCookies=true&qSHBrC=SB&qDest=3850%20Research%20Park%20Drive,%20Ann%20Arbor,%20MI,%20US&showApp=true&adjustMonth=false&srb_u=1&qRmFltr="
+    target="_blank"
+    rel="noopener noreferrer"
+    className="text-blue-600 hover:underline"
+  >click here</a></strong> in order to book on the Fournier block.
+  <br /><br />
+  If you prefer to book by phone, simply call the number listed above and use the code <strong>"FOR"</strong>.
 
-        <p className="text-gray-800 text-sm font-medium">
-          🚌 Complimentary shuttle service will run between the hotel and the
-          tailgate.
-        </p>
+</p>
+
       </section>
     </div>
   );
