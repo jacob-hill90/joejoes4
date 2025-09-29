@@ -133,6 +133,10 @@ const Home = () => {
               event: "Encore Drum Solos",
             },
             {
+              time: "4:00 PM",
+              event: "WJR LIVE onsite",
+            },
+            {
               time: "4:00 - 8:00 PM",
               event: "Post-Game Power Party: live music, entertainment, pizza, and beverages!",
             },
