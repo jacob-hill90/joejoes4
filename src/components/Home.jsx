@@ -30,26 +30,6 @@ const Home = () => {
           </a>
         </div>
       </section>
-      {/* New This Year Section */}
-      <section className="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 sm:p-10">
-        <h2 className="text-2xl font-bold text-[#00274c] mb-6 underline text-center">
-          What’s New This Year
-        </h2>
-        <div className="grid grid-cols-1 sm:grid-cols-2 gap-4 text-left max-w-3xl mx-auto">
-          <ul className="text-gray-700 text-lg list-disc list-outside pl-6 space-y-4">
-            <li>Charity Putting Challenge</li>
-            <li>Special Keynote Appearance</li>
-          </ul>
-          <ul className="text-gray-700 text-lg list-disc list-outside pl-6 space-y-4">
-            <li>
-              Live Performance by <strong>30</strong> Bagpipers
-            </li>
-            <li>
-              Featuring <strong>12</strong> Pistons & Lions Cheerleaders
-            </li>
-          </ul>
-        </div>
-      </section>
 
       {/* Schedule Section */}
       <section className="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 sm:p-10">
@@ -59,58 +39,61 @@ const Home = () => {
         <div className="max-w-3xl mx-auto divide-y divide-gray-200">
           {[
             {
-              time: "5:00 PM",
+              time: "10:30 AM",
               event:
-                "Tailgate Opens – Check in to receive your t-shirt and linked wristband",
+                "Tailgate Opens – Check in to receive t-shirt, wristband, and raffle tickets",
             },
             {
-              time: "5:00 PM",
+              time: "10:30 AM",
               event: (
                 <div>
                   <div>
                     KidZone, food stations, coffee bar, and full bar open
                   </div>
                   <div className="mt-1 text-sm text-gray-600 leading-relaxed">
-                    Fun: Putt for Charity · Face painter · Photo booth · Bouncy
-                    house · QB toss · Skee-Ball · Connect 4 · Jenga. <br />
-                    Food offerings: Burger bar · Hotdog bar · Cheese & cracker
-                    bar · Veggie bar · Dessert bar. <br />
+                    Fun: Putt for Charity · Face painter · Photo booth · Bouncy Obstacle Course <br />
+                    Food offerings: Burger bar · Burrito bar · Cheese & cracker
+                    bar · Veggie bar. <br />
                     Beverage stations: Fresh coffee, hot cocoa, and full-service
-                    bar with 5 bartenders and an ice luge.
+                    bar with 6 bartenders and an ice luge.
                   </div>
                 </div>
               ),
             },
+            { time: "11:00 AM", event: "Flag Raising – In memory of Molly ❤️" },
             {
-              time: "5:15 PM",
-              event: "Live Music – DJ Johnny B and MC Big Ross",
-            },
-            { time: "5:18 PM", event: "Flag Raising – In memory of Molly ❤️" },
-            {
-              time: "5:20 PM",
+              time: "11:05 AM",
               event:
-                "National Anthem performed by Abbigail (professional opera singer)",
+                "National Anthem (solo saxophone performance)",
             },
             {
-              time: "5:30 PM",
+              time: "11:10 AM",
               event:
                 "Cheer Team Showcase – 12 Detroit Pistons & Lions Cheerleaders",
             },
             {
-              time: "6:00 PM",
+              time: "11:10 AM",
+              event: "Live Music – DJ Johnny B and MC Big Ross",
+            },
+            {
+              time: "11:15 AM",
+              event:
+                "Charity putting contest",
+            },
+            {
+              time: "11:30 AM",
               event: "Live Performance – 30 Bagpipers and featured drum solos",
             },
             {
-              time: "6:15 PM",
-              event: "Snap-on Activation – Franchisee welcome and giveaways",
-            },
-            { time: "6:30 PM", event: "Snap-on Raffle Drawing" },
-            {
-              time: "7:10 PM",
+              time: "11:40 AM",
               event: "Main Stage – Light show and pyrotechnics display",
             },
             {
-              time: "7:20 PM",
+              time: "11:45 AM",
+              event: "Snap-on Activation – Franchisee welcome and giveaways",
+            },
+            {
+              time: "12:05 PM",
               event: (
                 <div>
                   <div>Kickoff Countdown – Michigan vs. Michigan State</div>
@@ -122,26 +105,36 @@ const Home = () => {
               ),
             },
             {
-              time: "8:15 PM",
+              time: "1:00 PM",
               event:
-                '"God Bless America" performed by Abbigail (end of 1st quarter)',
+                'God Bless America (special saxophone tribute) (end of 1st quarter)',
             },
             {
-              time: "8:45 PM",
+              time: "1:35 PM",
               event:
                 "Halftime Show – Bagpipers, drum solos, raffle prizes, and shirt cannon",
             },
             {
-              time: "9:15 PM",
+              time: "1:40 PM",
+              event:
+                "Keynote guest appearance",
+            },
+            
+            {
+              time: "2:00 PM",
               event: "Second Half Kickoff – Michigan vs. Michigan State",
             },
+              {
+              time: "2:00 PM",
+              event: "In-game activities",
+            },
             {
-              time: "10:00 PM",
+              time: "3:55 PM",
               event: "Encore Drum Solos",
             },
             {
-              time: "11:00 PM",
-              event: "Post-Game Power-Up – Pizza and nightcaps served",
+              time: "4:00 - 8:00 PM",
+              event: "Post-Game Power Party: live music, entertainment, pizza, and beverages!",
             },
           ].map((item, index) => (
             <div
@@ -163,10 +156,8 @@ const Home = () => {
           Game Time
         </h2>
         <p className="text-lg text-gray-700 max-w-3xl mx-auto text-center mb-6">
-          The current schedule is based on a 7:30 PM kickoff. As we get closer
-          to game day, the official start time may change. Please refer to the
-          table below to see when the tailgate will begin depending on the
-          confirmed kickoff time.
+          The current schedule is based on a 12:10 PM kickoff. As we get closer
+          to game day, the official start time may change.
         </p>
 
         <div className="overflow-x-auto max-w-md mx-auto">
