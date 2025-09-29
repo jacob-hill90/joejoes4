@@ -178,7 +178,7 @@ function App() {
       <main className="flex-grow bg-[#f8f9fa] ">{renderContent()}</main>
 
       <footer className="bg-[#f8f9fa] pt-12 text-black text-center py-4">
-        <Countdown targetDate="2025-10-25T17:00:00" />
+        <Countdown targetDate="2025-10-25T10:30:00" />
         <p className="text-sm">&copy; {currentYear} JoeJoesTailgate</p>
       </footer>
     </div>
