@@ -69,7 +69,7 @@ const Home = () => {
             {
               time: "11:10 AM",
               event:
-                "Cheer Team Showcase – 12 Detroit Pistons & Lions Cheerleaders",
+                "Cheer Team Showcase – 12 Professional Dancers",
             },
             {
               time: "11:10 AM",
