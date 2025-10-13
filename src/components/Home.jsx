@@ -39,12 +39,12 @@ const Home = () => {
         <div className="max-w-3xl mx-auto divide-y divide-gray-200">
           {[
             {
-              time: "10:30 AM",
+              time: "2:00 PM",
               event:
                 "Tailgate Opens – Check in to receive t-shirt, wristband, and raffle tickets",
             },
             {
-              time: "10:30 AM",
+              time: "2:00 PM",
               event: (
                 <div>
                   <div>
@@ -60,40 +60,40 @@ const Home = () => {
                 </div>
               ),
             },
-            { time: "11:00 AM", event: "Flag Raising – In memory of Molly ❤️" },
+            { time: "2:30 PM", event: "Flag Raising – In memory of Molly ❤️" },
             {
-              time: "11:05 AM",
+              time: "2:35 PM",
               event:
                 "National Anthem (solo saxophone performance)",
             },
             {
-              time: "11:10 AM",
+              time: "2:45 PM",
               event:
                 "Cheer Team Showcase – 12 Professional Dancers",
             },
             {
-              time: "11:10 AM",
+              time: "2:45 PM",
               event: "Live Music – DJ Johnny B and MC Big Ross",
             },
             {
-              time: "11:15 AM",
+              time: "2:50 PM",
               event:
                 "Charity putting contest",
             },
             {
-              time: "11:30 AM",
+              time: "3:05 PM",
               event: "Live Performance – 30 Bagpipers and featured drum solos",
             },
             {
-              time: "11:40 AM",
+              time: "3:15 PM",
               event: "Main Stage – Light show and pyrotechnics display",
             },
             {
-              time: "11:45 AM",
+              time: "3:20 PM",
               event: "Snap-on Activation – Franchisee welcome and giveaways",
             },
             {
-              time: "12:05 PM",
+              time: "3:30 PM",
               event: (
                 <div>
                   <div>Kickoff Countdown – Michigan vs. Michigan State</div>
@@ -105,39 +105,39 @@ const Home = () => {
               ),
             },
             {
-              time: "1:00 PM",
+              time: "4:30 PM",
               event:
                 'God Bless America (special saxophone tribute) (end of 1st quarter)',
             },
             {
-              time: "1:35 PM",
+              time: "5:05 PM",
               event:
                 "Halftime Show – Bagpipers, drum solos, raffle prizes, and shirt cannon",
             },
             {
-              time: "1:40 PM",
+              time: "5:10 PM",
               event:
                 "Keynote guest appearance",
             },
             
             {
-              time: "2:00 PM",
+              time: "5:30 PM",
               event: "Second Half Kickoff – Michigan vs. Michigan State",
             },
               {
-              time: "2:00 PM",
+              time: "5:30 PM",
               event: "In-game activities",
             },
             {
-              time: "3:55 PM",
+              time: "7:25 PM",
               event: "Encore Drum Solos",
             },
             {
-              time: "4:00 PM",
+              time: "7:30 PM",
               event: "WJR LIVE onsite",
             },
             {
-              time: "4:00 - 8:00 PM",
+              time: "7:30 - 11:30 PM",
               event: "Post-Game Power Party: live music, entertainment, pizza, and beverages!",
             },
           ].map((item, index) => (
@@ -155,7 +155,7 @@ const Home = () => {
       </section>
 
       {/* Note Section */}
-      <section className="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 sm:p-10">
+      {/* <section className="w-full max-w-4xl bg-white shadow-lg rounded-xl p-6 sm:p-10">
         <h2 className="text-3xl font-bold text-[#00274c] mb-6 underline text-center">
           Game Time
         </h2>
@@ -194,7 +194,7 @@ const Home = () => {
             </tbody>
           </table>
         </div>
-      </section>
+      </section> */}
     </div>
   );
 };
