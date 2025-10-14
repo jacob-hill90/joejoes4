@@ -36,7 +36,7 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-[#00274c] mb-2 underline text-center">
           Schedule
         </h2>
-        <p className="text-md text-gray-600 text-center mb-6">Based on a 3:30 PM game time</p>
+        <p className="text-sm text-gray-600 text-center mb-6">Based on a 3:30 PM game time</p>
 
         <div className="max-w-3xl mx-auto divide-y divide-gray-200">
           {[
@@ -60,6 +60,7 @@ const Home = () => {
                 </div>
               ),
             },
+            // Ceremonies & performances (no other times listed)
             { event: "Flag Raising – In memory of Molly ❤️" },
             { event: "National Anthem (solo saxophone performance)" },
             { event: "Cheer Team Showcase – 12 Professional Dancers" },
@@ -79,7 +80,7 @@ const Home = () => {
               ),
             },
             { event: "God Bless America (special saxophone tribute) (end of 1st quarter)" },
-            { event: "Halftime Show – Bagpipers, drum solos, raffle prizes, and shirt cannon" },
+            { event: "Halftime Show – Bagpipers, drum solos and raffle prizes!" },
             { event: "Keynote guest appearance" },
             { event: "Second Half Kickoff – Michigan vs. Michigan State" },
             { event: "In‑game activities" },
