@@ -74,7 +74,7 @@ const Home = () => {
                 <div>
                   <div>Kickoff Countdown – Michigan vs. Michigan State</div>
                   <div className="mt-1 text-sm text-gray-600 leading-relaxed">
-                    Watch on 6 large LED video walls under heated tents with enhanced sound.
+                    Watch on LED video walls under heated tents with enhanced sound.
                   </div>
                 </div>
               ),
