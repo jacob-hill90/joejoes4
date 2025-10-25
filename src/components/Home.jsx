@@ -36,13 +36,15 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-[#00274c] mb-2 underline text-center">
           Schedule
         </h2>
-        <p className="text-sm text-gray-600 text-center mb-6">Based on a 3:30 PM game time</p>
+        <p className="text-sm text-gray-600 font-bold text-center mb-2">Tailgate opens at 5pm!</p>
+
+        <p className="text-sm text-gray-600 font-bold text-center mb-6">Kickoff at 7:30pm!</p>
 
         <div className="max-w-3xl mx-auto divide-y divide-gray-200">
           {[
             // Tailgate & openers
             {
-              time: "2:00 PM",
+              time: "5:00 PM",
               event:
                 "Tailgate Opens – Check in to receive t‑shirt, wristband, and raffle tickets",
             },
@@ -64,7 +66,7 @@ const Home = () => {
             { event: "Flag Raising – In memory of Molly ❤️" },
             { event: "National Anthem (solo saxophone performance)" },
             { event: "Cheer Team Showcase – 12 Professional Dancers" },
-            { event: "Live Music – DJ Johnny B and MC Big Ross" },
+            { event: "Live Music – DJ Johnny B with MC Big Ross plus Fusion Saxophonist" },
             { event: "Charity putting contest" },
             { event: "Live Performance – 30 Bagpipers and featured drum solos" },
             { event: "Main Stage – Light show and pyrotechnics display" },
