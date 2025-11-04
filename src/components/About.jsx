@@ -11,7 +11,7 @@ const About = () => {
           loop
           muted
           playsInline
-          src={`${CLOUDFRONT_URL}/output.mp4`}
+          src={`${CLOUDFRONT_URL}/videos/2024/output.mp4`}
           type="video/mp4"
         />
       </div>

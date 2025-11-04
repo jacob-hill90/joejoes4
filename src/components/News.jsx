@@ -4,10 +4,12 @@ import { CLOUDFRONT_URL } from "../config";
 export default function News() {
   return (
     <div className="p-4">
-      <h1 className="text-3xl text-[#00274c] font-bold text-center mb-6">News</h1>
+      <h1 className="text-3xl text-[#00274c] font-bold text-center mb-6">
+        News
+      </h1>
 
       <AudioSpot
-        src={`${CLOUDFRONT_URL}/joejoests.mp3`}
+        src={`${CLOUDFRONT_URL}/audio/joejoests.mp3`}
         title="JR Sunday with Mark Hollis"
         description={
           <>
