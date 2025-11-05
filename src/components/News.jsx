@@ -1,5 +1,12 @@
 import AudioSpot from "./AudioSpot";
+import VideoSpot from "./VideoSpot";
 import { CLOUDFRONT_URL } from "../config";
+
+const PATHS = {
+  videos: `${CLOUDFRONT_URL}/videos`,
+  photos: `${CLOUDFRONT_URL}/photos`,
+  audio:  `${CLOUDFRONT_URL}/audio`,
+};
 
 export default function News() {
   return (
@@ -8,8 +15,22 @@ export default function News() {
         News
       </h1>
 
+      <VideoSpot
+        // ⬇️ point this to your short shoutout clip in S3
+        // Example path – change the file name if yours differs
+        src={`${PATHS.videos}/2025/shoutout.mp4`}
+        // Optional poster image (use any thumbnail from your photos)
+        poster={`${PATHS.photos}/2025/shoutoutPoster.jpg`}
+        title="Live Television Shoutout - 2025"
+        description={
+          null
+        }
+        date="October 25, 2025"
+      />
+
+      {/* Existing audio post */}
       <AudioSpot
-        src={`${CLOUDFRONT_URL}/audio/joejoests.mp3`}
+        src={`${PATHS.audio}/joejoests.mp3`}
         title="JR Sunday with Mark Hollis"
         description={
           <>
