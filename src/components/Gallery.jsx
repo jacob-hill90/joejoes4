@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useState, useEffect, useRef } from "react";
 import { CLOUDFRONT_URL } from "../config";
 
 const PATHS = {
@@ -6,31 +6,30 @@ const PATHS = {
   videos: `${CLOUDFRONT_URL}/videos`,
 };
 
-// Per-year video setup
+// Per-year video setup (keys as strings to match selectedYear)
 const VIDEO_META = {
-  2024: {
+  "2024": {
     title: "2024 Highlight Reel",
     main: "fullComp.mp4",
     poster: `${CLOUDFRONT_URL}/photos/2024/018@1024.jpg`,
-    extra: null, // no second video for 2024
+    extra: null,
     extraLabel: null,
   },
-  2025: {
+  "2025": {
     title: "2025 Highlight Reel",
-    main: "output.mp4", // <— becomes the main video when 2025 is selected
+    main: "output.mp4",
     poster: `${CLOUDFRONT_URL}/photos/2025/001@1024.jpg`,
     poster2: `${CLOUDFRONT_URL}/photos/2025/008@1024.jpg`,
-    extra: "highlightVid.MP4", // <— second slot under main
+    extra: "highlightVid.MP4",
     extraLabel: null,
   },
 };
 
 // How many images per year? (edit 2025 to your real count)
-const PHOTO_COUNTS = { 2024: 18, 2025: 96 };
+const PHOTO_COUNTS = { "2024": 18, "2025": 96 };
 
 // Build ["001","002",...]
-const seq = (n) =>
-  Array.from({ length: n }, (_, i) => String(i + 1).padStart(3, "0"));
+const seq = (n) => Array.from({ length: n }, (_, i) => String(i + 1).padStart(3, "0"));
 
 // Map years -> ["001","002",...]
 const photoData = Object.fromEntries(
@@ -39,12 +38,9 @@ const photoData = Object.fromEntries(
 
 // Small component that serves WebP with JPEG fallback + responsive sizes
 const GalleryImage = ({ year, base, onClick, className = "", sizes }) => {
-  const url = (suffix, ext) =>
-    `${PATHS.photos}/${year}/${base}${suffix}.${ext}`;
-
+  const url = (suffix, ext) => `${PATHS.photos}/${year}/${base}${suffix}.${ext}`;
   return (
     <picture>
-      {/* Primary: WebP */}
       <source
         type="image/webp"
         srcSet={[
@@ -54,7 +50,6 @@ const GalleryImage = ({ year, base, onClick, className = "", sizes }) => {
         ].join(", ")}
         sizes={sizes}
       />
-      {/* Fallback: JPEG */}
       <source
         type="image/jpeg"
         srcSet={[
@@ -64,7 +59,6 @@ const GalleryImage = ({ year, base, onClick, className = "", sizes }) => {
         ].join(", ")}
         sizes={sizes}
       />
-      {/* Final fallback src */}
       <img
         src={url("@1024", "jpg")}
         alt=""
@@ -82,11 +76,26 @@ const Gallery = () => {
   const [selectedYear, setSelectedYear] = useState("2025");
 
   const photos = photoData[selectedYear]; // ["001","002",...]
+  const meta = VIDEO_META[selectedYear];
+
+  // ⬇️ ref for the MAIN video
+  const mainVideoRef = useRef(null);
+
+  // Force the video element to reload sources when year changes
+  useEffect(() => {
+    const el = mainVideoRef.current;
+    if (el) {
+      try {
+        el.pause();
+        el.currentTime = 0; // optional: reset position
+        el.load();          // 👈 reload sources
+      } catch {}
+    }
+  }, [selectedYear]);
 
   const openAt = (index) => {
     if (index >= 0 && index < photos.length) setModalIndex(index);
   };
-
   const closeModal = () => setModalIndex(null);
 
   // Keyboard nav in modal
@@ -107,9 +116,6 @@ const Gallery = () => {
     return () => (document.body.style.overflow = "");
   }, [modalIndex]);
 
-  // Helpers for video poster + modal src
-  const meta = VIDEO_META[selectedYear];
-
   const currentBase = modalIndex !== null ? photos[modalIndex] : null;
   const modalWebp = currentBase
     ? `${PATHS.photos}/${selectedYear}/${currentBase}@2048.webp`
@@ -120,12 +126,9 @@ const Gallery = () => {
 
   return (
     <div className="bg-gray-100 py-8 px-6">
-            {/* Year Selector */}
+      {/* Year Selector */}
       <div className="flex items-center justify-center mb-6">
-        <label
-          htmlFor="year-select"
-          className="mr-2 font-semibold text-[#00274c]"
-        >
+        <label htmlFor="year-select" className="mr-2 font-semibold text-[#00274c]">
           Select Year:
         </label>
         <select
@@ -141,6 +144,7 @@ const Gallery = () => {
           ))}
         </select>
       </div>
+
       {/* Video Section */}
       <div className="max-w-4xl mx-auto mb-12">
         <h2 className="text-2xl text-[#00274c] font-bold text-center mb-6 underline">
@@ -150,6 +154,7 @@ const Gallery = () => {
         {/* Main video */}
         <div className="rounded-2xl overflow-hidden shadow-lg border border-gray-200">
           <video
+            ref={mainVideoRef}
             className="w-full h-auto object-cover"
             poster={meta.poster}
             controls
@@ -157,6 +162,7 @@ const Gallery = () => {
             playsInline
           >
             <source
+              key={`mp4-${selectedYear}`} // helps React update child node
               src={`${PATHS.videos}/${selectedYear}/${meta.main}`}
               type="video/mp4"
             />
@@ -170,7 +176,6 @@ const Gallery = () => {
             <h3 className="text-xl text-[#00274c] font-semibold text-center mb-4">
               {meta.extraLabel}
             </h3>
-
             <div className="mx-auto w-full max-w-md rounded-2xl overflow-hidden shadow-lg border border-gray-200">
               <video
                 className="w-full h-auto object-cover"
@@ -228,7 +233,6 @@ const Gallery = () => {
             className="relative w-full max-w-7xl p-4"
             onClick={(e) => e.stopPropagation()}
           >
-            {/* Close */}
             <button
               className="absolute top-4 right-4 bg-red-600 text-white rounded-full p-2 w-6 h-6 flex items-center justify-center"
               onClick={closeModal}
@@ -237,7 +241,6 @@ const Gallery = () => {
               ✕
             </button>
 
-            {/* Left Arrow */}
             {modalIndex > 0 && (
               <button
                 className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
@@ -248,7 +251,6 @@ const Gallery = () => {
               </button>
             )}
 
-            {/* Right Arrow */}
             {modalIndex < photos.length - 1 && (
               <button
                 className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/70 hover:bg-white rounded-full p-2 shadow"
@@ -259,7 +261,6 @@ const Gallery = () => {
               </button>
             )}
 
-            {/* Modal Image with WebP + JPEG fallback */}
             <picture>
               <source type="image/webp" srcSet={modalWebp} />
               <img
