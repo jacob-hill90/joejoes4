@@ -17,7 +17,7 @@ const VIDEO_META = {
   },
   "2025": {
     title: "2025 Highlight Reel",
-    main: "output.mp4",
+    main: "2025_highlight_1080p.mp4",
     poster: `${CLOUDFRONT_URL}/photos/2025/001@1024.jpg`,
     poster2: `${CLOUDFRONT_URL}/photos/2025/008@1024.jpg`,
     extra: "highlightVid.MP4",
