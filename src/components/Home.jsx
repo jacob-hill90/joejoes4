@@ -63,7 +63,7 @@ const Home = () => {
           Thank you for coming
         </h2>
         <p className="text-2xl font-semibold text-[#00274c] text-center">
-          See you in 2026!
+          See you November 7th 2026!
         </p>
       </section>
     </div>
