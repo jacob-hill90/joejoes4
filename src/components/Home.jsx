@@ -62,9 +62,7 @@ const Home = () => {
         <h2 className="text-4xl font-bold text-[#00274c] mb-4 text-center">
           Thank you for coming
         </h2>
-        <p className="text-2xl font-semibold text-[#00274c] text-center">
-          See you November 7th 2026!
-        </p>
+
       </section>
     </div>
   );
