@@ -95,18 +95,18 @@ function App() {
               Gallery
             </button>
             {/* 🆕 News tab */}
-            <button
+            {/* <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
               onClick={() => setActiveTab("news")}
             >
               News
-            </button>
-             <button
+            </button> */}
+             {/* <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
               onClick={() => setActiveTab("lodging")}
             >
               Lodging
-            </button>
+            </button> */}
           </div>
 
           {/* Mobile Menu Icon */}
@@ -153,7 +153,7 @@ function App() {
             >
               Gallery
             </button>
-            <button
+            {/* <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
               onClick={() => {
                 setActiveTab("news");
@@ -161,8 +161,8 @@ function App() {
               }}
             >
               News
-            </button>
-            <button
+            </button> */}
+            {/* <button
               className="py-2 px-4 rounded hover:underline decoration-2 underline-offset-4"
               onClick={() => {
                 setActiveTab("lodging");
@@ -170,7 +170,7 @@ function App() {
               }}
             >
               Lodging
-            </button>
+            </button> */}
           </div>
         )}
       </header>
