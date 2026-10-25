@@ -1,3 +1,17 @@
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
+
+/* Keep the site's shared colors in one place for future refinements. */
+@layer base {
+  :root {
+    --tailgate-navy: #00274c;
+    --tailgate-maize: #ffcb05;
+    --tailgate-background: #f8f9fa;
+  }
+
+  body {
+    background-color: var(--tailgate-background);
+    -webkit-font-smoothing: antialiased;
+  }
+}

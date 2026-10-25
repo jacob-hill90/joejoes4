@@ -1,73 +1,91 @@
-// src/components/Countdown.jsx
 import { useEffect, useState } from "react";
 
-function getNextFutureOccurrence(dateLike) {
-  // Accepts a Date or a date string (e.g., "2025-10-25T14:00:00")
-  const base = new Date(dateLike);
-  const now = new Date();
-  // If base is already in the past, keep adding years until it's in the future
-  let next = new Date(base);
-  while (next <= now) {
+// Retain the original yearly recurrence for an active countdown.
+// No event date is guessed when the countdown is paused.
+function getNextFutureOccurrence(dateLike, now) {
+  if (!dateLike) return null;
+
+  const next = new Date(dateLike);
+  if (Number.isNaN(next.getTime())) return null;
+
+  while (next.getTime() <= now) {
     next.setFullYear(next.getFullYear() + 1);
   }
+
   return next;
 }
 
-const Countdown = ({ targetDate }) => {
-  const [activeTarget, setActiveTarget] = useState(() =>
-    getNextFutureOccurrence(targetDate)
-  );
-  const [countdown, setCountdown] = useState({
-    days: 0, hours: 0, minutes: 0, seconds: 0,
-  });
+function getTimeRemaining(target, now) {
+  const totalSeconds = Math.max(0, Math.floor((target.getTime() - now) / 1000));
+  return {
+    days: Math.floor(totalSeconds / 86400),
+    hours: Math.floor((totalSeconds % 86400) / 3600),
+    minutes: Math.floor((totalSeconds % 3600) / 60),
+    seconds: totalSeconds % 60,
+  };
+}
+
+const Countdown = ({
+  targetDate,
+  paused = false,
+  pauseMessage = "We'll share the next date when it's confirmed.",
+}) => {
+  const [now, setNow] = useState(() => Date.now());
 
   useEffect(() => {
-    // If the prop changes, recompute the next future occurrence
-    setActiveTarget(getNextFutureOccurrence(targetDate));
-  }, [targetDate]);
+    // Don't run a timer while the event is on hiatus.
+    if (paused || !targetDate) return undefined;
 
-  useEffect(() => {
-    const interval = setInterval(() => {
-      const now = new Date();
-      const diff = activeTarget - now;
+    setNow(Date.now());
+    const intervalId = window.setInterval(() => setNow(Date.now()), 1000);
+    return () => window.clearInterval(intervalId);
+  }, [paused, targetDate]);
 
-      if (diff <= 0) {
-        // Bump to the next year (same month/day/time)
-        const next = new Date(activeTarget);
-        next.setFullYear(next.getFullYear() + 1);
-        setActiveTarget(next);
-        return;
-      }
+  const target = paused ? null : getNextFutureOccurrence(targetDate, now);
 
-      const days = Math.floor(diff / (1000 * 60 * 60 * 24));
-      const hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-      const minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-      const seconds = Math.floor((diff % (1000 * 60)) / 1000);
+  if (!target) {
+    return (
+      <div className="mx-auto mb-5 max-w-md rounded-xl border border-[#00274c]/10 bg-white px-5 py-4 text-center shadow-sm sm:px-6">
+        <p className="text-xs font-bold uppercase tracking-wider text-[#00274c] sm:text-sm">
+          Next tailgate
+        </p>
+        <p className="mt-1 text-sm leading-relaxed text-gray-700 sm:text-base">
+          {paused ? pauseMessage : "Date to be announced."}
+        </p>
+      </div>
+    );
+  }
 
-      setCountdown({ days, hours, minutes, seconds });
-    }, 1000);
-
-    return () => clearInterval(interval);
-  }, [activeTarget]);
+  const remaining = getTimeRemaining(target, now);
+  const units = [
+    { label: "Days", value: remaining.days, maize: false },
+    { label: "Hours", value: remaining.hours, maize: false },
+    { label: "Minutes", value: remaining.minutes, maize: true },
+    { label: "Seconds", value: remaining.seconds, maize: true },
+  ];
 
   return (
-    <div className="mx-auto mb-4 grid grid-cols-4 gap-2 sm:gap-4 text-center w-full max-w-sm">
-      <div className="bg-[#00274c] text-white p-2 sm:p-4 rounded-lg text-xs sm:text-base">
-        <p className="text-lg sm:text-2xl font-bold">{countdown.days}</p>
-        <p className="text-[10px] sm:text-sm">Days</p>
-      </div>
-      <div className="bg-[#00274c] text-white p-2 sm:p-4 rounded-lg text-xs sm:text-base">
-        <p className="text-lg sm:text-2xl font-bold">{countdown.hours}</p>
-        <p className="text-[10px] sm:text-sm">Hours</p>
-      </div>
-      <div className="bg-[#ffcb05] text-white p-2 sm:p-4 rounded-lg text-xs sm:text-base">
-        <p className="text-lg sm:text-2xl font-bold">{countdown.minutes}</p>
-        <p className="text-[10px] sm:text-sm">Minutes</p>
-      </div>
-      <div className="bg-[#ffcb05] text-white p-2 sm:p-4 rounded-lg text-xs sm:text-base">
-        <p className="text-lg sm:text-2xl font-bold">{countdown.seconds}</p>
-        <p className="text-[10px] sm:text-sm">Seconds</p>
-      </div>
+    <div
+      className="mx-auto mb-5 grid w-full max-w-sm grid-cols-4 gap-2 sm:gap-3"
+      role="timer"
+      aria-label="Time until the next tailgate"
+      aria-live="off"
+    >
+      {units.map(({ label, value, maize }) => (
+        <div
+          key={label}
+          className={`flex min-w-0 flex-col items-center justify-center rounded-xl px-1 py-3 text-center shadow-sm sm:px-2 sm:py-4 ${
+            maize ? "bg-[#ffcb05] text-[#00274c]" : "bg-[#00274c] text-white"
+          }`}
+        >
+          <span className="text-xl font-bold tabular-nums leading-tight sm:text-2xl">
+            {String(value).padStart(2, "0")}
+          </span>
+          <span className="mt-1 text-[10px] font-semibold uppercase tracking-wide sm:text-xs">
+            {label}
+          </span>
+        </div>
+      ))}
     </div>
   );
 };
