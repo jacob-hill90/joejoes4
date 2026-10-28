@@ -1,9 +1,9 @@
+import FieldGoalGame from "../components/FieldGoalGame";
 
 const Home = () => {
   return (
     <div className="w-full bg-[#f8f9fa]">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-4 py-6 text-center sm:gap-6 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-
         {/* Team logos: equal columns keep the pair centered. */}
         <section
           aria-label="Michigan and Michigan State football"
@@ -38,6 +38,13 @@ const Home = () => {
               className="h-14 w-auto object-contain sm:h-20 lg:h-24"
             />
           </a>
+        </section>
+        <section aria-label="JoeJoe's Field Goal" className="w-full max-w-4xl">
+          <h2 className="mb-5 text-center font-mono text-2xl font-bold tracking-wider text-black sm:text-3xl">
+            JoeJoe&apos;s Field Goal
+          </h2>
+
+          <FieldGoalGame />
         </section>
 
         {/* Announcement Card */}
