@@ -57,7 +57,7 @@ const About = () => {
               there&apos;s something for everyone to enjoy.
             </p>
             <p>
-              We&apos;re taking a break for the 2026 season, but the memories and
+              <u><i>Unfortunately</i></u>, we&apos;re taking a break for the 2026 season, but the memories and
               community mean a lot to us. Thank you for being part of the
               tradition. We hope to celebrate together again in the future!
             </p>
