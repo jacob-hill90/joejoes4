@@ -4,10 +4,10 @@ const schedule = [
     time: "5:30 PM",
     title: "The Party Begins!",
     details: [
-      "Kid Park — Fowling, hoops, Connect 4, mini golf & more — Erik",
-      "Food — Sessions Room catering: burger sliders, pizza, wings & German pretzels — Team",
-      "Donations to the Alzheimer's Association — Josh",
-      "Bar opens — bartenders go live — MO & Team",
+      "Kid Park — Fowling, hoops, Connect 4, mini golf & more",
+      "Food — Sessions Room catering: burger sliders, pizza, wings & German pretzels",
+      "Donations to the Alzheimer's Association ",
+      "Bar opens — bartenders go live",
     ],
   },
   {

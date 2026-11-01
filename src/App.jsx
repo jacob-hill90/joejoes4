@@ -15,7 +15,7 @@ const NAV_ITEMS = [
 ];
 
 // Easter egg configuration
-const REQUIRED_LOGO_CLICKS = 50;
+const REQUIRED_LOGO_CLICKS = 20;
 
 // November 7, 2026 at 5:30 PM Eastern Standard Time.
 const TAILGATE_DATE = "2026-11-07T17:30:00-05:00";
