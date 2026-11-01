@@ -1,10 +1,15 @@
-import FieldGoalGame from "../components/FieldGoalGame";
 
-const Home = () => {
+import FieldGoalGame from "./FieldGoalGame";
+import TailGateSchedule from "./TailgateSchedule";
+
+const Home = ({ unlocked = false }) => {
   return (
     <div className="w-full bg-[#f8f9fa]">
       <div className="mx-auto flex w-full max-w-5xl flex-col items-center gap-4 px-4 py-6 text-center sm:gap-6 sm:px-6 sm:py-10 lg:px-8 lg:py-12">
-        {/* Team logos: equal columns keep the pair centered. */}
+
+        {/* =====================================
+            TEAM LOGOS
+        ===================================== */}
         <section
           aria-label="Michigan and Michigan State football"
           className="mx-auto grid w-full max-w-xs grid-cols-2 items-center justify-items-center gap-4 sm:max-w-sm sm:gap-6"
@@ -39,7 +44,28 @@ const Home = () => {
             />
           </a>
         </section>
-        <section aria-label="JoeJoe's Field Goal" className="w-full max-w-4xl">
+
+        {/* =====================================
+            SECRET TAILGATE SCHEDULE
+            Appears after 50 logo clicks
+        ===================================== */}
+        {unlocked && (
+          <section
+            aria-label="Exclusive tailgate invitation"
+            className="w-full max-w-4xl"
+          >
+            <TailGateSchedule />
+          </section>
+        )}
+
+        {/* =====================================
+            FIELD GOAL GAME
+            Always visible
+        ===================================== */}
+        <section
+          aria-label="JoeJoe's Field Goal"
+          className="w-full max-w-4xl"
+        >
           <h2 className="mb-5 text-center font-mono text-2xl font-bold tracking-wider text-black sm:text-3xl">
             JoeJoe&apos;s Field Goal
           </h2>
@@ -47,22 +73,31 @@ const Home = () => {
           <FieldGoalGame />
         </section>
 
-        {/* Announcement Card */}
-        <section className="w-full max-w-4xl rounded-xl bg-white px-5 py-8 shadow-sm sm:rounded-2xl sm:px-10 sm:py-12 sm:shadow-md lg:px-14 lg:py-14">
-          <h1 className="text-3xl font-bold leading-tight text-[#00274c] sm:text-4xl lg:text-5xl">
-            Taking a Break in 2026
-          </h1>
+        {/* =====================================
+            NORMAL ANNOUNCEMENT
+            Hidden when Easter egg is unlocked
+        ===================================== */}
+        {!unlocked && (
+          <section className="w-full max-w-4xl rounded-xl bg-white px-5 py-8 shadow-sm sm:rounded-2xl sm:px-10 sm:py-12 sm:shadow-md lg:px-14 lg:py-14">
 
-          <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-700 sm:mt-6 sm:text-lg lg:text-xl">
-            After another great year in 2025, we'll be taking a hiatus for the
-            2026 season. Thank you to everyone who has participated, supported,
-            and helped make this tradition what it is.
-          </p>
+            <h1 className="text-3xl font-bold leading-tight text-[#00274c] sm:text-4xl lg:text-5xl">
+              Taking a Break in 2026
+            </h1>
 
-          <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold leading-snug text-[#00274c] sm:mt-8 sm:text-xl lg:text-2xl">
-            We look forward to seeing what 2027 holds!
-          </p>
-        </section>
+            <p className="mx-auto mt-5 max-w-2xl text-base leading-relaxed text-gray-700 sm:mt-6 sm:text-lg lg:text-xl">
+              After another great year in 2025, we'll be
+              taking a hiatus for the 2026 season. Thank you
+              to everyone who has participated, supported,
+              and helped make this tradition what it is.
+            </p>
+
+            <p className="mx-auto mt-6 max-w-2xl text-lg font-semibold leading-snug text-[#00274c] sm:mt-8 sm:text-xl lg:text-2xl">
+              We look forward to seeing what 2027 holds!
+            </p>
+
+          </section>
+        )}
+
       </div>
     </div>
   );
